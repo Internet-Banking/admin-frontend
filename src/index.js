@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import Layout from './components/Layout'
+import {BrowserRouter, Route} from 'react-router-dom'
 import DevTools from './devTools'
 import * as serviceWorker from './serviceWorker'
 import configureStore from './store'
+import App from './App'
 
 // import css here
 import 'antd/dist/antd.css' // from antd
@@ -14,7 +15,9 @@ const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <Layout />
+    <BrowserRouter>
+      <Route path='/' component={App} />
+    </BrowserRouter>
     <DevTools/>
   </Provider>,
   document.getElementById('root')
