@@ -1,7 +1,8 @@
 import React from 'react'
 import Icon from '../../assets/adminIcon.png'
-import {Button, Input, Form} from 'antd'
+import {Button, Input, Form, message} from 'antd'
 import styled from 'styled-components'
+import {BaseAPI} from '../../services'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -17,9 +18,15 @@ const layout = {
 }
 
 const LoginPage = () => {
-  const onFinish = values => {
-    // eslint-disable-next-line no-console
-    console.log('Success:', values)
+  const onFinish = async (values) => {
+    const result = await BaseAPI.post('admin/login', values)
+    if (result.isSuccess) {
+      // eslint-disable-next-line no-console
+      console.log(result.data)
+    }
+    else {
+      message.error(result.error.message)
+    }
   }
 
   return (
@@ -32,7 +39,7 @@ const LoginPage = () => {
         onFinish={onFinish}
         name='basic' {...layout} initialValues={{remember: true}}>
         <Form.Item
-          label='Bank Email' name='bankEmail'
+          label='Bank Email' name='email'
           rules={[{required: true, message: 'Please input your bank email!'}]}>
           <Input />
         </Form.Item>
