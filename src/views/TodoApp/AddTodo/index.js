@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   }
 `
 
-const AddTodo = props => {
+const AddTodo = () => {
   const [input, setInput] = useState(undefined)
   const dispatch = useDispatch()
 

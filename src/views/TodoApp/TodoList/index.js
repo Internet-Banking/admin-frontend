@@ -24,7 +24,7 @@ const TodoList = () => {
   return (
     <Wrapper className='todo-list'>
       {todos && todos.length
-        ? todos.map((todo, index) => {
+        ? todos.map((todo) => {
           return <Todo key={`todo-${todo.id}`} todo={todo} />
         })
         : 'No todos, yay!'}

@@ -2,7 +2,7 @@
 ## Available scripts
 ### yarn start 
 - Chạy app trên môi trường development.
-- Mở [http://localhost:3000](http://localhost:3000) để sử dụng.
+- Mở [http://localhost:3003](http://localhost:3003) để sử dụng.
 ### yarn build
 - Build app cho môi trường production.
 ### yarn lint
