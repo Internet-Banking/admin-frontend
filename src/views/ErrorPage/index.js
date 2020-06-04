@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const ErrorPage = () => {
   return (
     <Wrapper>
-      <Empty description='' />
+      <Empty imageStyle={{height: 200}} description='' />
       <Link to='/'>
         <Button type='primary'>Back to Home Page</Button>
       </Link>

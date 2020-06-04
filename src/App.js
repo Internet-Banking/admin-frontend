@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from './components/Layout'
+import LoginPage from './views/LoginPage'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import ErrorPage from './views/ErrorPage'
 
@@ -9,7 +9,7 @@ const App = () => {
       <Route
         exact
         path='/'
-        render={() => <Layout />}
+        render={() => <LoginPage />}
       />
       <Route path='/404' component={ErrorPage} />
       <Redirect from='*' to='/404' />
