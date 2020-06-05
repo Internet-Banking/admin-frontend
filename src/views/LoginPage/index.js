@@ -1,8 +1,10 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
 import Icon from '../../assets/adminIcon.png'
 import {Button, Input, Form, message} from 'antd'
 import styled from 'styled-components'
-import {BaseAPI} from '../../services'
+import {api} from '../../services'
+import {onLoginSuccess} from './actions'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -18,11 +20,12 @@ const layout = {
 }
 
 const LoginPage = () => {
+  const dispatch = useDispatch()
   const onFinish = async (values) => {
-    const result = await BaseAPI.post('admin/login', values)
+    const result = await api.post('admin/login', values)
     if (result.isSuccess) {
-      // eslint-disable-next-line no-console
-      console.log(result.data)
+      const {payload, token} = result.data
+      dispatch(onLoginSuccess(payload, token))
     }
     else {
       message.error(result.error.message)

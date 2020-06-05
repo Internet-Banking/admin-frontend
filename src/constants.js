@@ -22,6 +22,8 @@ export const VISIBILITY_FILTERS = {
   INCOMPLETE: 'incomplete'
 }
 
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+
 export default {
   API_URL,
   Phases: keyMirror(action.arrayToObject(Phases)),
