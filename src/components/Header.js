@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {BankOutlined} from '@ant-design/icons'
 import {createFromIconfontCN} from '@ant-design/icons'
+import {Link} from 'react-router-dom'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: ['//at.alicdn.com/t/font_1861426_5usavs3twno.js']
@@ -42,12 +43,14 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <HomeIcon>
-        <BankOutlined/>
-      </HomeIcon>
-      <Title>Internet Banking 29</Title>
+      <Link to='/employee'>
+        <HomeIcon>
+          <BankOutlined/>
+        </HomeIcon>
+        <Title>IBanking 29 Admin Website</Title>
+      </Link>
       <AdminPanel>
-        Pham Hoang Minh
+      Pham Hoang Minh
         <IconFont style={{padding: '0 30px', fontSize: '25px', transform: 'translateY(20%)'}}
           type='icon-logout'/>
       </AdminPanel>

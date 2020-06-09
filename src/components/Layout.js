@@ -15,10 +15,10 @@ const Layout = ({children}) => {
   return (
     <Wrapper>
       <Header/>
-      <Sider/>
       <Content style={{margin: '0 16px'}}>
         {children}
       </Content>
+      <Sider/>
     </Wrapper>
   )
 }

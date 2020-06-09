@@ -26,7 +26,7 @@ const Login = () => {
         IBanking 29 Admin Website
       </Title>
       <img alt='admin avatar' src={adminIcon}
-        style={{width: '30vw', height: '40vh', transform: 'translate(20vw, 20vh)', float: 'left'}}/>
+        style={{width: '30vw', height: '50vh', transform: 'translate(20vw, 20vh)', float: 'left'}}/>
       <LoginForm/>
     </Wrapper>
   )
