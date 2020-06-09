@@ -15,7 +15,7 @@ export const initApp = () => {
         return {isSuccess: false, error: {message: `Token is ${state.toLowercase()}`}}
       }
 
-      return {isSuccess: true, undefined}
+      return {isSuccess: true, token}
     }
     catch (error) {
       auth.removeToken()
