@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux'
-import todoList from './todoList'
-import todoMap from './todoMap'
-import visibilityFilter from './visibilityFilter'
-import adminCredentials from './adminCredentials'
+// import todoList from './todoList'
+// import todoMap from './todoMap'
+// import visibilityFilter from './visibilityFilter'
+import initialized from './initialization'
+import error from './error'
+import admin from './admin'
 
-export default combineReducers({todoList, todoMap, visibilityFilter, adminCredentials})
+export default combineReducers({initialized, admin, error})

@@ -1,6 +1,6 @@
-import {LOGIN_SUCCESS} from '../../constants'
+import {ActionTypes} from '../../constants'
 
 export const onLoginSuccess = (adminInfo, token) => ({
-  type: LOGIN_SUCCESS,
+  type: ActionTypes.LOGIN,
   payload: {adminInfo, token}
 })

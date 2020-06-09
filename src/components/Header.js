@@ -30,7 +30,7 @@ const HomeIcon = styled.div`
   transform: translateY(15%);
 `
 
-const UserPanel = styled.span`
+const AdminPanel = styled.span`
   width: 30vh;
   position: absolute;
   top: 0;
@@ -39,7 +39,6 @@ const UserPanel = styled.span`
 `
 
 const Header = () => {
-  // const userInfo = useSelector(state => state.user)
 
   return (
     <Wrapper>
@@ -47,11 +46,11 @@ const Header = () => {
         <BankOutlined/>
       </HomeIcon>
       <Title>Internet Banking 29</Title>
-      <UserPanel>
+      <AdminPanel>
         Pham Hoang Minh
         <IconFont style={{padding: '0 30px', fontSize: '25px', transform: 'translateY(20%)'}}
           type='icon-logout'/>
-      </UserPanel>
+      </AdminPanel>
     </Wrapper>
   )
 }
