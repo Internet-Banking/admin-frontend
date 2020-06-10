@@ -1,5 +1,3 @@
-// import LocalStorage from './storage/local'
-// import SessionStorage from './storage/session'
 import {LocalStorage, SessionStorage} from './'
 
 const saveToken = (token, isLongTerm) => {

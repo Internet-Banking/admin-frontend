@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {BankOutlined, createFromIconfontCN} from '@ant-design/icons'
 import {Link} from 'react-router-dom'
-import {api} from '../services'
+import {api, auth} from '../services'
+import {action} from '../utils'
+import {ActionTypes} from '../constants'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: ['//at.alicdn.com/t/font_1861426_5usavs3twno.js']
@@ -40,8 +42,15 @@ const AdminPanel = styled.span`
   transform: translateY(70%);
 `
 
+const onLogOut = () => {
+  return action.create(ActionTypes.LOG_OUT, () => {
+    auth.removeToken()
+  })
+}
+
 const Header = () => {
   const token = useSelector(state => state.admin.token)
+  const dispatch = useDispatch()
   const [adminInfo, setAdminInfo] = React.useState(null)
 
   React.useEffect(() => {
@@ -54,6 +63,10 @@ const Header = () => {
     getData()
   }, [token])
 
+  const logOut = () => {
+    dispatch(onLogOut())
+  }
+
   return (
     <Wrapper>
       <Link to='/employee'>
@@ -64,7 +77,9 @@ const Header = () => {
       </Link>
       <AdminPanel>
         {adminInfo ? adminInfo.name : null}
-        <IconFont style={{padding: '0 30px', fontSize: '25px', transform: 'translateY(20%)'}}
+        <IconFont
+          onClick={logOut}
+          style={{padding: '0 30px', fontSize: '25px', transform: 'translateY(20%)'}}
           type='icon-logout'/>
       </AdminPanel>
     </Wrapper>

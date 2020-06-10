@@ -23,6 +23,10 @@ export default (state = initialState, {type, payload}) => {
         token
       }
     }
+
+    case ActionTypes.LOG_OUT: {
+      return {...initialState}
+    }
     default:
       return state
   }
