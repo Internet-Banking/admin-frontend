@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import {BankOutlined} from '@ant-design/icons'
-import {createFromIconfontCN} from '@ant-design/icons'
+import {useSelector} from 'react-redux'
+import {BankOutlined, createFromIconfontCN} from '@ant-design/icons'
 import {Link} from 'react-router-dom'
+import {api} from '../services'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: ['//at.alicdn.com/t/font_1861426_5usavs3twno.js']
@@ -40,6 +41,18 @@ const AdminPanel = styled.span`
 `
 
 const Header = () => {
+  const token = useSelector(state => state.admin.token)
+  const [adminInfo, setAdminInfo] = React.useState(null)
+
+  React.useEffect(() => {
+    const getData = async () => {
+      const result = await api.get('admin/me', undefined, token)
+      if (result.isSuccess) {
+        setAdminInfo(result.data.payload)
+      }
+    }
+    getData()
+  }, [token])
 
   return (
     <Wrapper>
@@ -50,7 +63,7 @@ const Header = () => {
         <Title>IBanking 29 Admin Website</Title>
       </Link>
       <AdminPanel>
-      Pham Hoang Minh
+        {adminInfo ? adminInfo.name : null}
         <IconFont style={{padding: '0 30px', fontSize: '25px', transform: 'translateY(20%)'}}
           type='icon-logout'/>
       </AdminPanel>
