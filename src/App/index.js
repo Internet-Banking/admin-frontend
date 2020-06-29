@@ -13,7 +13,7 @@ const App = () => {
   const dispatch = useDispatch()
   React.useEffect(() => {
     dispatch(initApp())
-  })
+  }, [])
   return (
     <Switch>
       <Route
