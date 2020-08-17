@@ -116,7 +116,6 @@ const EmployeePage = () => {
       dataIndex: 'id',
       key: 'id',
       align: 'center',
-      // eslint-disable-next-line no-unused-vars
       render: (id, row, index) => (
         <div>
           <Button

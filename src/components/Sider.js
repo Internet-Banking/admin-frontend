@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Layout, Menu} from 'antd'
+import {Link} from 'react-router-dom'
 import {TeamOutlined, AreaChartOutlined} from '@ant-design/icons'
 
 const {Sider: AntdSider} = Layout
@@ -13,10 +14,10 @@ const Sider = () => {
       onCollapse={() => setIsCollapsed(!isCollapsed)}>
       <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
         <Menu.Item key='1' icon={<TeamOutlined />}>
-          Manage Employees
+          <Link to='/employee'>Manage Employees</Link>
         </Menu.Item>
         <Menu.Item key='2' icon={<AreaChartOutlined />}>
-          Transactions
+          <Link to='/transaction/outer'>Outer Transactions</Link>
         </Menu.Item>
       </Menu>
     </AntdSider>
